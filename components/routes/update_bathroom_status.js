@@ -35,15 +35,21 @@ module.exports = function(webserver, controller) {
       res.send(`
 <html>
   <head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style type="text/css">
       body {
-        margin: 0;
+        background-color: black;
+      }
+      #status-color {
         font-size: 80px;
         font-weight: bold;
-        display: table;
-        height: 100%;
-        width: 100%;
-        text-align: center;
       }
       .status-available {
         // display: table-cell;
@@ -66,9 +72,21 @@ module.exports = function(webserver, controller) {
     </script>
   </head>
   <body>
-    <div class="status-${tracker.status}" id="status-color">The bathroom is ${tracker.status}</div>
-    <div data-bttnio-id="btn-3dda0c43216b8e3c" data-bttnio-context='{ "subject_location": { "latitude": 40.738275, "longitude": -73.982285 } }'></div>
-    <div data-bttnio-id="btn-2d12cd4e16414ef1" data-bttnio-context='{ "item": { "identifiers": { "jet": "9a04cd1ee78d403aa3aa3d220e077339" } } }'></div>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 text-center">
+        <div class="status-${tracker.status}" id="status-color">The bathroom is ${tracker.status}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 text-center">
+        <div data-bttnio-id="btn-3dda0c43216b8e3c" data-bttnio-context='{ "subject_location": { "latitude": 40.738275, "longitude": -73.982285 } }'></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 text-center">
+        <div data-bttnio-id="btn-2d12cd4e16414ef1" data-bttnio-context='{ "item": { "identifiers": { "jet": "9a04cd1ee78d403aa3aa3d220e077339" } } }'></div>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script>
